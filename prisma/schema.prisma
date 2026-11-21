@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Peserta {
+  id                      Int       @id @default(autoincrement())
+  nama_peserta            String
+  emel                    String
+  organisasi_atau_fakulti String
+  status_hadir            String    @default("Belum Hadir")
+  masa_checkin            DateTime?
+  createdAt               DateTime  @default(now())
+}
